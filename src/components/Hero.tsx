@@ -1,11 +1,12 @@
 import React from 'react';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, BookOpen } from 'lucide-react';
 
 interface HeroProps {
   checkoutUrl: string;
+  onPreviewClick?: () => void;
 }
 
-export const Hero: React.FC<HeroProps> = ({ checkoutUrl }) => {
+export const Hero: React.FC<HeroProps> = ({ checkoutUrl, onPreviewClick }) => {
   return (
     <section className="relative pt-28 sm:pt-36 pb-20 sm:pb-28 overflow-hidden bg-[#0a1811]">
       {/* Subtle warm depth in background */}
@@ -49,6 +50,17 @@ export const Hero: React.FC<HeroProps> = ({ checkoutUrl }) => {
                 <span>GET THE EBOOK</span>
                 <ArrowUpRight className="w-5 h-5 ml-2 text-[#0b1f15] stroke-[2.5]" aria-hidden="true" />
               </a>
+
+              {onPreviewClick && (
+                <button
+                  type="button"
+                  onClick={onPreviewClick}
+                  className="inline-flex items-center justify-center px-6 py-4 text-sm font-semibold tracking-wide text-[#faf7f0] hover:text-[#ffffff] bg-[#142b1f] hover:bg-[#1a3828] border border-[#275037] rounded transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#d9bf86]"
+                >
+                  <BookOpen className="w-4 h-4 mr-2 text-[#d9bf86]" aria-hidden="true" />
+                  <span>Read Free Sample</span>
+                </button>
+              )}
             </div>
 
             <p className="text-sm text-[#b0c2b5] italic font-serif">
@@ -67,15 +79,35 @@ export const Hero: React.FC<HeroProps> = ({ checkoutUrl }) => {
 
               {/* Book container */}
               <div className="relative rounded-lg p-2.5 sm:p-3 bg-[#11241a] border border-[#244c35] shadow-2xl shadow-black/70">
-                <div className="relative aspect-[2/3] w-full overflow-hidden rounded bg-[#07120d] flex items-center justify-center">
+                <div
+                  className="relative aspect-[2/3] w-full overflow-hidden rounded bg-[#07120d] flex items-center justify-center cursor-pointer group"
+                  onClick={onPreviewClick}
+                  role={onPreviewClick ? 'button' : undefined}
+                  tabIndex={onPreviewClick ? 0 : undefined}
+                  onKeyDown={(e) => {
+                    if (onPreviewClick && (e.key === 'Enter' || e.key === ' ')) {
+                      e.preventDefault();
+                      onPreviewClick();
+                    }
+                  }}
+                  aria-label="Preview book cover and sample chapters"
+                >
                   <img
                     src="/ebook_cover.png"
                     alt="Original ebook cover of How to Stop Losing Yourself After Becoming a Mother by Praise Adekoya"
-                    className="w-full h-full object-contain filter drop-shadow select-none"
+                    className="w-full h-full object-contain filter drop-shadow select-none transition-transform duration-300 group-hover:scale-[1.02]"
                     loading="eager"
                     decoding="async"
                     referrerPolicy="no-referrer"
                   />
+
+                  {/* Look Inside badge on cover */}
+                  {onPreviewClick && (
+                    <div className="absolute bottom-3 left-1/2 -translate-x-1/2 px-3.5 py-1.5 rounded-full bg-[#08150f]/90 backdrop-blur-sm border border-[#d9bf86]/60 text-[#faf7f0] text-xs font-semibold tracking-wide flex items-center space-x-1.5 shadow-lg group-hover:bg-[#faf6ed] group-hover:text-[#0b1f15] transition-all">
+                      <BookOpen className="w-3.5 h-3.5 text-[#d9bf86] group-hover:text-[#0b1f15]" />
+                      <span>Click to Look Inside</span>
+                    </div>
+                  )}
                 </div>
 
                 <div className="mt-3 px-3 py-2 rounded bg-[#0d1c14] border border-[#1b3828] flex items-center justify-between text-xs text-[#c2d1c7]">

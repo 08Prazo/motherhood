@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Header } from './components/Header.tsx';
 import { Hero } from './components/Hero.tsx';
 import { AboutTheBook } from './components/AboutTheBook.tsx';
 import { WhatYouGain } from './components/WhatYouGain.tsx';
 import { FinalCTA } from './components/FinalCTA.tsx';
 import { Footer } from './components/Footer.tsx';
+import { BookSampleModal } from './components/BookSampleModal.tsx';
 
 // The verified official Selar checkout destination for this ebook
 const SELAR_CHECKOUT_URL = 'https://selar.com/3127sw1184';
 
 export default function App() {
+  const [isSampleOpen, setIsSampleOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-[#091710] text-[#faf7f0] selection:bg-[#faf6ed] selection:text-[#0b1f15]">
       {/* Header */}
@@ -17,7 +20,10 @@ export default function App() {
 
       <main>
         {/* 1. Hero Section */}
-        <Hero checkoutUrl={SELAR_CHECKOUT_URL} />
+        <Hero
+          checkoutUrl={SELAR_CHECKOUT_URL}
+          onPreviewClick={() => setIsSampleOpen(true)}
+        />
 
         {/* 2. About the Book */}
         <AboutTheBook />
@@ -31,6 +37,13 @@ export default function App() {
 
       {/* Minimal Footer */}
       <Footer checkoutUrl={SELAR_CHECKOUT_URL} />
+
+      {/* Look Inside: Sample Reader from the Uploaded Book */}
+      <BookSampleModal
+        isOpen={isSampleOpen}
+        onClose={() => setIsSampleOpen(false)}
+        checkoutUrl={SELAR_CHECKOUT_URL}
+      />
     </div>
   );
 }
