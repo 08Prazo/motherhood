@@ -1,7 +1,11 @@
 import React from 'react';
-import { Compass, Feather, Sunrise } from 'lucide-react';
+import { Compass, Feather, Sunrise, ArrowUpRight } from 'lucide-react';
 
-export const WhatYouGain: React.FC = () => {
+interface WhatYouGainProps {
+  checkoutUrl: string;
+}
+
+export const WhatYouGain: React.FC<WhatYouGainProps> = ({ checkoutUrl }) => {
   const benefits = [
     {
       number: '01',
@@ -67,6 +71,23 @@ export const WhatYouGain: React.FC = () => {
               </div>
             );
           })}
+        </div>
+
+        {/* Purchase Call to Action after the book benefits */}
+        <div className="mt-14 text-center">
+          <a
+            href={checkoutUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center px-8 py-4 text-base font-bold tracking-wider uppercase text-[#0b1f15] bg-[#faf6ed] hover:bg-[#ffffff] active:bg-[#ede5d6] rounded transition-all duration-150 shadow-md hover:shadow-lg hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#faf6ed] focus-visible:ring-offset-[#0a1811]"
+            aria-label="Start my journey back to me on Selar (opens in new tab)"
+          >
+            <span>START MY JOURNEY BACK TO ME</span>
+            <ArrowUpRight className="w-5 h-5 ml-2 text-[#0b1f15] stroke-[2.5]" aria-hidden="true" />
+          </a>
+          <p className="text-xs text-[#a0b3a7] mt-3 font-light">
+            Guaranteed safe checkout via Selar • Compatible with all devices
+          </p>
         </div>
       </div>
     </section>

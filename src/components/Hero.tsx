@@ -38,16 +38,16 @@ export const Hero: React.FC<HeroProps> = ({ checkoutUrl, onPreviewClick }) => {
               You love your children. You give your best every day. But when was the last time you did something that reminded you who you are?
             </p>
 
-            {/* GET THE EBOOK Button - Warm Cream Background with Dark Green Text */}
+            {/* GET MY COPY Button - Warm Cream Background with Dark Green Text */}
             <div className="w-full sm:w-auto flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-3">
               <a
                 href={checkoutUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center px-8 py-4 text-base font-bold tracking-wider uppercase text-[#0b1f15] bg-[#faf6ed] hover:bg-[#ffffff] active:bg-[#ede5d6] rounded transition-all duration-150 shadow-md hover:shadow-lg hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#faf6ed] focus-visible:ring-offset-[#0a1811]"
-                aria-label="Get the ebook on Selar (opens in new tab)"
+                aria-label="Get my copy on Selar (opens in new tab)"
               >
-                <span>GET THE EBOOK</span>
+                <span>GET MY COPY</span>
                 <ArrowUpRight className="w-5 h-5 ml-2 text-[#0b1f15] stroke-[2.5]" aria-hidden="true" />
               </a>
 

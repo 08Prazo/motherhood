@@ -40,19 +40,31 @@ export const Header: React.FC<HeaderProps> = ({ checkoutUrl }) => {
         </a>
 
         {/* Navigation & Direct Purchase Button */}
-        <div className="flex items-center space-x-4 sm:space-x-7">
-          <nav className="hidden md:flex items-center space-x-7 text-sm font-medium text-[#c8d6ce]">
+        <div className="flex items-center space-x-3 sm:space-x-6">
+          <nav className="hidden lg:flex items-center space-x-6 text-sm font-medium text-[#c8d6ce]">
             <a
               href="#about-the-book"
               className="hover:text-[#faf7f0] transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-[#d9bf86]"
             >
-              About the Book
+              The Book
+            </a>
+            <a
+              href="#nigerian-mothers"
+              className="hover:text-[#faf7f0] transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-[#d9bf86]"
+            >
+              For Nigerian Mothers
             </a>
             <a
               href="#what-you-gain"
               className="hover:text-[#faf7f0] transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-[#d9bf86]"
             >
               What You'll Gain
+            </a>
+            <a
+              href="#reader-reflections"
+              className="hover:text-[#faf7f0] transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-[#d9bf86]"
+            >
+              Reader Reflections
             </a>
           </nav>
 
@@ -61,9 +73,9 @@ export const Header: React.FC<HeaderProps> = ({ checkoutUrl }) => {
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center px-4 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-sm font-bold tracking-wider uppercase text-[#0b1f15] bg-[#faf6ed] hover:bg-[#ffffff] active:bg-[#ede5d6] rounded transition-all duration-150 shadow-sm hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#faf6ed] focus-visible:ring-offset-[#091710]"
-            aria-label="Get the ebook on Selar (opens in new tab)"
+            aria-label="Get my copy on Selar (opens in new tab)"
           >
-            <span>GET THE EBOOK</span>
+            <span>GET MY COPY</span>
             <ArrowUpRight className="w-3.5 h-3.5 ml-1.5 stroke-[2.5]" aria-hidden="true" />
           </a>
         </div>

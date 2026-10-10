@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import { Header } from './components/Header.tsx';
 import { Hero } from './components/Hero.tsx';
 import { AboutTheBook } from './components/AboutTheBook.tsx';
+import { NigerianMothers } from './components/NigerianMothers.tsx';
 import { WhatYouGain } from './components/WhatYouGain.tsx';
+import { Testimonials } from './components/Testimonials.tsx';
 import { FinalCTA } from './components/FinalCTA.tsx';
 import { Footer } from './components/Footer.tsx';
 import { BookSampleModal } from './components/BookSampleModal.tsx';
@@ -15,7 +17,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#091710] text-[#faf7f0] selection:bg-[#faf6ed] selection:text-[#0b1f15]">
-      {/* Header */}
+      {/* Top Header Navigation */}
       <Header checkoutUrl={SELAR_CHECKOUT_URL} />
 
       <main>
@@ -25,17 +27,23 @@ export default function App() {
           onPreviewClick={() => setIsSampleOpen(true)}
         />
 
-        {/* 2. About the Book */}
-        <AboutTheBook />
+        {/* 2. Emotional Book Description */}
+        <AboutTheBook checkoutUrl={SELAR_CHECKOUT_URL} />
 
-        {/* 3. What You'll Gain */}
-        <WhatYouGain />
+        {/* 3. To the Nigerian Mother Who Is Tired of Being Strong All the Time */}
+        <NigerianMothers checkoutUrl={SELAR_CHECKOUT_URL} />
 
-        {/* 4. Final Call to Action */}
+        {/* 4. What You'll Gain (3 Core Benefits) */}
+        <WhatYouGain checkoutUrl={SELAR_CHECKOUT_URL} />
+
+        {/* 5. Words from Women Who Understand (15 Reader Review Slots) */}
+        <Testimonials />
+
+        {/* 6. Final Call to Action */}
         <FinalCTA checkoutUrl={SELAR_CHECKOUT_URL} />
       </main>
 
-      {/* Minimal Footer */}
+      {/* Minimal, Professional Footer */}
       <Footer checkoutUrl={SELAR_CHECKOUT_URL} />
 
       {/* Look Inside: Sample Reader from the Uploaded Book */}
